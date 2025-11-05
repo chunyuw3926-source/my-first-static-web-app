@@ -1,19 +1,575 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heritage Chinese</title>
+
+
+<link rel="stylesheet" type="text/css" href="base.css" tppabs="https://heritagechinese.com/static/common/css/base.css"/>
+<link rel="stylesheet" type="text/css" href="font-awesome.css" tppabs="https://heritagechinese.com/static/common/css/font-awesome.css"/>
+<link rel="shortcut icon" href="favicon.ico" tppabs="https://heritagechinese.com/static/common/favicon.ico">
+
+    <style type="text/css">
+    
+    .menu {border:3px solid blue; border-radius:6px; font-size:16pt; padding:0px; height:265px; color:gray; margin-right: .5%; text-align: center;
+    width:24.5%; line-height: 2em;
+    }
+    .menu.help{
+      width:25%;
+      margin:0px;
+    }
+    .menutitle {color:white; background:blue; font-size:18pt; height:40px;}
+
+  .splashbackground {
+    background:url(splash-background.jpg)/*tpa=https://heritagechinese.com/static/common/images/home/splash-background.jpg*/ right bottom no-repeat #bde8ee;
+    padding:10px;
+    position: relative;
+  }
+  .splashheader {
+    text-align:right;
+    font-size:1.78em;
+    color:#006;
+    line-height: 1.3em;
+  }
+  .splashheader img.image_header {
+    float:left;
+    max-width:163px;
+    width:25%;
+    padding:10px;
+  }
+  img.global{
+    position: absolute;
+    left: 5%;
+    top: 40%;
+    width: 120px;
+    max-width:15%;
+    cursor: pointer;
+  }
+  img.ximalaya{
+    position: absolute;
+    left: 7%;
+    top: 73%;
+    width: 65px;
+    max-width:8%;
+    cursor: pointer;
+  }
+  .splashheader hr {
+    border:0;
+    border-top: 2px solid #87bbbf;
+    background-color:#87bbbf;
+    margin:5px 0;
+  }
+  .textbooktext {
+    font-size:1.78em;
+    color:#006;
+    position:absolute;
+    left: 0; 
+    right: 0;
+    text-shadow:
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
+
+  }
+  .textbooktext.first{
+    top:300px;
+  }
+  .textbooktext.second{
+    top:490px;
+  }
+  .textbooktext.second span {
+      margin-left: 60px
+  }
+  .curriculum_image {
+    max-width: 646px;
+    width:80%;
+    padding-bottom:26px;
+  }
+
+.new_slogan {
+  font-size:1.956em;
+  color:#006;
+  margin-bottom: 15px;
+}
+.grid div.post_text {
+    width:80%;
+    font-family: Helvetica, Arial, "Microsoft Yahei", 微软雅黑, SimHei, 黑体, sans-serif;
+}
+@media (min-width: 650px) {
+  div.main_container {
+      margin:0 auto;
+      padding-top:90px;
+  }
+}
+@media (max-width: 1110px) {
+  .splashbackground {
+    background-position: 90% bottom;
+  }
+  .textbooktext.first{
+    top:55%;
+  }
+  .textbooktext.second{
+    top:90%;
+  }
+}
+@media (max-width: 650px) {
+  .splashbackground {
+    padding-top:15px;
+    background-position: 80% bottom;
+  }
+  .splashheader {
+    font-size:1.33em;
+  }
+  .new_slogan {
+    font-size:1.467em;
+  }
+  .textbooktext.first, .textbooktext.second {
+    position: relative;
+    top:auto;
+
+  }
+  .textbooktext.second span {
+      margin-left: 0;
+      display: block;
+  }
+  img.global{
+    top: 12%;
+    left: 5%;
+  }
+  img.ximalaya{
+    top: 12%;
+    left: 25%;
+  }
+}
+    </style>
+
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App
-    hello chunyuw 
-    how are you </h1>
-  </main>
-</body>
+<div class="main-container">
 
+<div id="info-msg"></div>
+
+
+<div id="error-msg"></div>
+
+
+
+<header>
+  <h1 class="logo">
+    <a href="index.htm" tppabs="https://heritagechinese.com/">
+      <img src="lipingchinese-logo.png" tppabs="https://heritagechinese.com/static/common/images/lipingchinese-logo.png" alt="立平 - 中文"/>
+      <span class="hidden">立平 - 中文</span>
+    </a>
+  </h1>
+
+<nav>
+  <div class="top">
+      <a href="" id="navigation">Menu <i class="fa fa-bars" aria-hidden="true"></i></a>
+    <br style="clear:right"/>
+  </div>
+  <div class="links"><a href="index-1.htm" tppabs="https://heritagechinese.com/order/nearby_schools/"><i class="fa fa-map-marker" aria-hidden="true"></i>School Locator</a>|<a href="index-2.htm" tppabs="https://heritagechinese.com/contact/"><i class="fa fa-envelope-o" aria-hidden="true"></i>Contact</a>|<a href="index-3.htm" tppabs="https://heritagechinese.com/website/page/wechat/"><i class="fa fa-wechat" aria-hidden="true"></i>微信群</a></div>
+  <ul class="nav">
+    <li class="intro">
+    
+      <a href="" class="create_account"><i class="fa fa-user" aria-hidden="true"></i> Register</a> |
+      <a href="index-4.htm" tppabs="https://heritagechinese.com/accounts/login/">Login</a>
+      <div class="hidden create_account_buttons" style="background:#000; position:relative; padding:10px; top:20px;margin-bottom:20px">
+      <a href="create_account.htm" tppabs="https://heritagechinese.com/teacher/create_account" class="big button" style="margin-bottom:10px">Create Teacher Account</a><br/>
+      <a href="create_account-1.htm" tppabs="https://heritagechinese.com/student/create_account" class="big button">Create Student Account</a>
+      </div>
+    
+  </li>
+    <li class="headermenu">
+      <a href="index-5.htm" tppabs="https://heritagechinese.com/website/page/tedian/">关于我们</a>
+      <div class="hidden subnav">
+        
+          <a href="index-6.htm" tppabs="https://heritagechinese.com/website/page/jiegou/">整体结构</a><br>
+            
+        
+          <a href="index-7.htm" tppabs="https://heritagechinese.com/website/page/linian/">教学理念</a><br>
+            
+        
+          <a href="index-5.htm" tppabs="https://heritagechinese.com/website/page/tedian/">教材特点</a><br>
+            
+        
+          <a href="index-8.htm" tppabs="https://heritagechinese.com/website/page/shiyong/">教材使用</a><br>
+             <!-- line is 3 from the bottom -->
+			       <hr style="border-top:1px solid #84d6e3;border-bottom:0;margin: .5em 5px 0;">
+            
+        
+          <a href="index-9.htm" tppabs="https://heritagechinese.com/website/page/aboutmaliping/">马立平简介</a><br>
+            
+        
+          <a href="index-10.htm" tppabs="https://heritagechinese.com/website/page/hcc/">HCC团队介绍</a><br>
+            
+        
+          <a href="index-11.htm" tppabs="https://heritagechinese.com/website/page/otheressays/">使用者分享</a><br>
+            
+        
+      </div>
+    </li><li class="headermenu">
+      <a href="index-12.htm" tppabs="https://heritagechinese.com/website/page/browse/" style="border-color:#541088">浏览教材</a>
+      <div class="hidden subnav textbook" style="border-color:#541088;">
+        
+          <ul class="textbook">
+          
+           
+            <li>
+              <a href="index-13.htm" tppabs="https://heritagechinese.com/website/page/K/"><img src="00-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/00-KebenCover.jpg" alt="学前班" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-14.htm" tppabs="https://heritagechinese.com/website/page/G1/"><img src="01-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/01-KebenCover.jpg" alt="一年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-15.htm" tppabs="https://heritagechinese.com/website/page/G2/"><img src="02-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/02-KebenCover.jpg" alt="二年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-16.htm" tppabs="https://heritagechinese.com/website/page/G3/"><img src="03-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/03-KebenCover.jpg" alt="三年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-17.htm" tppabs="https://heritagechinese.com/website/page/G4/"><img src="04-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/04-KebenCover.jpg" alt="四年级" width="66" height="88"/></a>
+            </li>
+            
+          
+          </ul>
+        
+          <ul class="textbook">
+          
+           
+            <li>
+              <a href="index-18.htm" tppabs="https://heritagechinese.com/website/page/G5/"><img src="05-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/05-KebenCover.jpg" alt="五年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-19.htm" tppabs="https://heritagechinese.com/website/page/G6/"><img src="06-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/06-KebenCover.jpg" alt="六年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-20.htm" tppabs="https://heritagechinese.com/website/page/G7/"><img src="07-KebenCover.jpg.png" tppabs="https://heritagechinese.com/media/support/07-KebenCover.jpg" alt="七年级" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-21.htm" tppabs="https://heritagechinese.com/website/page/YCT/"><img src="YCT-Icon.jpg" tppabs="https://heritagechinese.com/media/support/YCT-Icon.jpg" alt="YCT" width="66" height="88"/></a>
+            </li>
+            
+          
+          </ul>
+        
+          <ul class="textbook">
+          
+           
+            <li>
+              <a href="index-22.htm" tppabs="https://heritagechinese.com/website/page/zhichuang/"><img src="08-new-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/08-new-KebenCover.jpg" alt="中华文化之窗" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-23.htm" tppabs="https://heritagechinese.com/website/page/xunli/"><img src="xunli-KebenCover.jpg" tppabs="https://heritagechinese.com/media/support/xunli-KebenCover.jpg" alt="中华文化巡礼" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+            <li>
+              <a href="index-24.htm" tppabs="https://heritagechinese.com/website/page/newAP/"><img src="apnew-KebenCover.jpg.png" tppabs="https://heritagechinese.com/media/support/apnew-KebenCover.jpg" alt="AP" width="66" height="88"/></a>
+            </li>
+            
+          
+           
+          
+           
+            <li>
+              <a href="index-25.htm" tppabs="https://heritagechinese.com/website/page/HSK/"><img src="HSK-Icon2.jpg" tppabs="https://heritagechinese.com/media/support/HSK-Icon2.jpg" alt="HSK" width="66" height="88"/></a>
+            </li>
+            
+          
+          </ul>
+        
+          <ul class="textbook">
+          
+           
+          
+           
+          
+          </ul>
+        
+        <a href="index-6.htm" tppabs="https://heritagechinese.com/website/page/jiegou/" class='liulan'>整体结构</a>
+        <a href="index-7.htm" tppabs="https://heritagechinese.com/website/page/linian/" class='liulan'>教学理念</a>
+        <a href="index-5.htm" tppabs="https://heritagechinese.com/website/page/tedian/" class='liulan'>教材特点</a>
+        <a href="index-8.htm" tppabs="https://heritagechinese.com/website/page/shiyong/">教材使用</a>
+        <p>
+        
+          <a class='liulan' href="index-26.htm" tppabs="https://heritagechinese.com/website/page/newgrade8/">新老八九年级对比</a>
+        
+          <a class='liulan' href="index-24.htm" tppabs="https://heritagechinese.com/website/page/newAP/">新AP教材</a>
+        
+        <a href="javascript:if(confirm(%27https://drive.google.com/file/d/1rPvO3SNhalKT1lrw_UKzUmQue5dFJHkn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27https://drive.google.com/file/d/1rPvO3SNhalKT1lrw_UKzUmQue5dFJHkn/%27" tppabs="https://drive.google.com/file/d/1rPvO3SNhalKT1lrw_UKzUmQue5dFJHkn/">AP模拟题</a>
+        </p>
+      </div>
+    </li><li class="headermenu">
+      <a href="index-27.htm" tppabs="https://heritagechinese.com/order/form/" style="border-color:#26A90A">购买Order</a>
+      <div class="hidden subnav" style="border-color:#26A90A">
+        
+          <a href="index-27.htm" tppabs="https://heritagechinese.com/order/form/">个人购买</a><br>
+        
+          <a href="index-28.htm" tppabs="https://heritagechinese.com/website/page/orderguidegeren/">个人购买指南</a><br>
+        
+          <a href="index-29.htm" tppabs="https://heritagechinese.com/website/page/tuanti/">团体采购</a><br>
+        
+          <a href="index-30.htm" tppabs="https://heritagechinese.com/website/page/InternationalDealer/">教材销售</a><br>
+        
+          <a href="index-31.htm" tppabs="https://heritagechinese.com/website/page/local/">Walk-In 购买</a><br>
+        
+          <a href="index-32.htm" tppabs="https://heritagechinese.com/website/page/xuanze/">年级选择</a><br>
+        
+          <a href="index-33.htm" tppabs="https://heritagechinese.com/website/page/new/">新教材介绍</a><br>
+        
+          <a href="index-34.htm" tppabs="https://heritagechinese.com/website/page/fantiorder/">繁体教材订购</a><br>
+        
+      </div>
+    </li><li class="headermenu fourth_category">
+      <a href="index-35.htm" tppabs="https://heritagechinese.com/support/" style="border-color:#163588">教学支持</a>
+      <div class="hidden subnav" style="border-color:#163588">
+        
+          
+            <a href="index-35.htm" tppabs="https://heritagechinese.com/support/" style="font-size:1.2em">教学园地</a><br>
+          
+          
+          <a href="index-36.htm" tppabs="https://heritagechinese.com/website/page/teachertour/">教师账户介绍</a><br>
+
+        
+          
+          
+          <a href="index-37.htm" tppabs="https://heritagechinese.com/website/page/parentadvice/">家长三要三不要</a><br>
+
+        
+      	  <a href="search.htm" tppabs="https://heritagechinese.com/textbook/search">课本词汇搜索</a>
+      </div>
+    </li><li class="headermenu">
+    
+      <a href="index-4.htm" tppabs="https://heritagechinese.com/accounts/login/" style="border-color:#ff8000">网上作业</a>
+    
+      
+      <div class="hidden subnav" style="border-color:#ff8000">
+      
+        <a href="index-4.htm" tppabs="https://heritagechinese.com/accounts/login/" style="border-color:#ff8000">进入作业</a><br>
+      
+        
+          <a href="index-38.htm" tppabs="https://heritagechinese.com/website/page/gettingstarted/">Getting Started</a><br>
+        
+          <a href="index-39.htm" tppabs="https://heritagechinese.com/website/page/wangshangzuoye/">网上作业使用指南</a><br>
+        
+          <a href="index-40.htm" tppabs="https://heritagechinese.com/website/page/hwtour_K/">学前班网上作业介绍</a><br>
+        
+          <a href="index-41.htm" tppabs="https://heritagechinese.com/website/page/hwtour_G1-4/">G1-4 网上作业介绍</a><br>
+        
+          <a href="index-42.htm" tppabs="https://heritagechinese.com/website/page/hwtour_G5-7/">G5-7 网上作业介绍</a><br>
+        
+          <a href="index-43.htm" tppabs="https://heritagechinese.com/website/page/hwtour_G8-9/">G8-9 网上作业介绍</a><br>
+        
+          <a href="index-44.htm" tppabs="https://heritagechinese.com/website/page/hwtour_AP/">AP 网上资源指南</a><br>
+        
+          <a href="index-45.htm" tppabs="https://heritagechinese.com/website/page/lessonstructure/">网络作业安排</a><br>
+        
+          <a href="index-46.htm" tppabs="https://heritagechinese.com/website/page/report/">Report a Problem</a><br>
+        
+      </div>
+    </li><li class="headermenu last">
+      <a href="index-47.htm" tppabs="https://heritagechinese.com/website/help/"  style="border-color:#B70B39">Help</a>
+    </li>
+  </ul>
+  </nav>
+</header>
+<div class="main_container">
+
+
+
+    
+<div class="splashbackground">
+ <div class="kai splashheader">
+  <img src="lipingchinese-logo.png" tppabs="https://heritagechinese.com/static/common/images/lipingchinese-logo.png" alt="立平 - 中文" class="image_header"/>马立平中文继承语课程<hr>
+  <a href="index-30.htm" tppabs="https://heritagechinese.com/website/page/InternationalDealer"><img src="global-logo.png" tppabs="https://heritagechinese.com/static/common/images/global-logo.png" alt="立平中文 - 国际代理" class="global" /></a>
+  <!-- <a target='_blank' href="https://www.ximalaya.com/zhubo/115568502"><img src="/static/common/images/ximalaya-logo.png" alt="ximalaya 马立平频道" class="ximalaya" /></a> -->
+  <a target='_blank' href="javascript:if(confirm(%27https://www.youtube.com/@malipingchineseaudio/playlists  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27https://www.youtube.com/@malipingchineseaudio/playlists%27" tppabs="https://www.youtube.com/@malipingchineseaudio/playlists"><img src="audio-logo.png" tppabs="https://heritagechinese.com/static/common/images/audio-logo.png" alt="马立平频道" class="ximalaya" /></a>
+  
+     <a href="index-4.htm" tppabs="https://heritagechinese.com/accounts/login/" class="big button">
+  
+  网上作业 <img src="textbookcode.gif.png" tppabs="https://heritagechinese.com/static/common/images/textbookcode.gif" style="width:35px;vertical-align:middle"/> Online HW</a>
+  <br style="clear:left">
+ </div>
+ <!--<div class="maliping_photo" style=""><img src="/static/common/images/maliping2.jpg" style="width:100%">
+      </div>-->
+ <div class="new_slogan" style=""><span style="display:inline-block">文化与文字并重</span> &nbsp; <span style="display:inline-block">快乐和高效同行</span></div>
+ <img src="splash-curriculum.png" tppabs="https://heritagechinese.com/static/common/images/home/splash-curriculum.png" class="curriculum_image" usemap="#map" id="curriculum_image"/>
+ <map name="map" id="map">
+    <area alt="学前班" title="学前班" href="index-48.htm" tppabs="https://heritagechinese.com/support/grade/13/" 
+    shape="poly" coords="86,21,192,10,209,144,103,158" />
+    <area alt="一年级" title="一年级" href="index-49.htm" tppabs="https://heritagechinese.com/support/grade/1/" 
+    shape="poly" coords="196,8,286,2,293,140,213,144" />
+    <area alt="二年级" title="二年级" href="index-50.htm" tppabs="https://heritagechinese.com/support/grade/2/" 
+    shape="poly" coords="290,2,376,4,377,142,297,141" />
+    <area alt="三年级" title="三年级" href="index-51.htm" tppabs="https://heritagechinese.com/support/grade/3/" 
+    shape="poly" coords="382,5,467,9,459,147,380,141" />
+    <area alt="四年级" title="四年级" href="index-52.htm" tppabs="https://heritagechinese.com/support/grade/4/" 
+    shape="poly" coords="471,9,556,21,540,156,464,148" />
+    <area alt="五年级" title="五年级" href="index-53.htm" tppabs="https://heritagechinese.com/support/grade/5/" 
+    shape="poly" coords="6,198,111,185,131,322,25,336" />
+    <area alt="六年级" title="六年级" href="index-54.htm" tppabs="https://heritagechinese.com/support/grade/6/" 
+    shape="poly" coords="116,186,207,183,209,320,136,322" />
+    <area alt="七年级" title="七年级" href="index-55.htm" tppabs="https://heritagechinese.com/support/grade/7/" 
+    shape="poly" coords="212,185,299,191,291,328,214,324" />
+    <area alt="中华文化之窗" title="中华文化之窗" href="index-56.htm" tppabs="https://heritagechinese.com/support/grade/10/" 
+    shape="poly" coords="351,191,457,183,469,322,362,330" />
+    <area alt="中华文化巡礼" title="中华文化巡礼" href="index-57.htm" tppabs="https://heritagechinese.com/support/grade/11/" 
+    shape="poly" coords="461,183,551,186,549,322,473,321" />
+    <area alt="AP" title="AP" href="index-24.htm" tppabs="https://heritagechinese.com/website/page/newAP" 
+    shape="poly" coords="555,186,645,197,628,333,552,324" />
+</map>
+
+<div class="kai textbooktext first">低年级：突破识字关</div>
+<div class="kai textbooktext second">中年级：阅读＋写作＋<a href="index-21.htm" tppabs="https://heritagechinese.com/website/page/YCT" style="color:#006">YCT</a>
+<span style='margin-left: 0.4em'>高年级：文化＋AP＋<a href="index-25.htm" tppabs="https://heritagechinese.com/website/page/HSK" style="color:#006">HSK</a></span></div>
+</div>
+ 
+  <div class="grid">
+  
+  <div class="intro">
+  
+      <div class="menu col-1-4" style="border-color: #50B20A;">
+<div class="menutitle" style="background-color: #50b20a;">购买 ORDER</div>
+<a href="index-27.htm" tppabs="https://heritagechinese.com/order/form/">个人购买</a> <br><a href="index-28.htm" tppabs="https://heritagechinese.com/website/page/orderguidegeren/">个人购买指南</a><br><a href="index-29.htm" tppabs="https://heritagechinese.com/website/page/tuanti/">团体采购</a> <br><a href="index-32.htm" tppabs="https://heritagechinese.com/website/page/xuanze/">年级选择 </a><br><a href="index-33.htm" tppabs="https://heritagechinese.com/website/page/new/">新教材介绍</a></div>
+<div class="menu col-1-4" style="border-color: #541088;">
+<div class="menutitle" style="background-color: #541088;">家长 PARENTS</div>
+<!--#CA9C0C--> <a href="index-37.htm" tppabs="https://heritagechinese.com/website/page/parentadvice/">三要三不要</a><br><a href="index-8.htm" tppabs="https://heritagechinese.com/website/page/shiyong/">使用指南</a> <br><a href="index-58.htm" tppabs="https://heritagechinese.com/website/page/hwtour/">网上作业介绍</a>&nbsp;<br><a href="student.htm" tppabs="https://heritagechinese.com/website/help/student">Parent/Student Q&amp;A</a><a href="index-1.htm" tppabs="https://heritagechinese.com/order/nearby_schools/"><br>Find Nearby Schools</a> <br><!--br><a href="/site/?page=wechat#parents">家长微信群</a>
+      <br><a href="/nearbyschools/">附近中文学校</a--></div>
+<div class="menu col-1-4" style="border-color: #1F1B8D;">
+<div class="menutitle" style="background-color: #1f1b8d;">教师 TEACHERS</div>
+<div style="border: 3px solid #33CC99; border-radius: 16px; margin: 4px; background-color: #ffffdd; padding: 10px;"><a style="font-size: 20pt; letter-spacing: 3px; color: #339933; font-weight: bold;" href="index-35.htm" tppabs="https://heritagechinese.com/support/">教学园地</a></div>
+<a href="index-36.htm" tppabs="https://heritagechinese.com/website/page/teachertour/">教师账户介绍</a> <br><a href="search.htm" tppabs="https://heritagechinese.com/textbook/search">课本词汇搜索</a> <br><a href="teacher.htm" tppabs="https://heritagechinese.com/website/help/teacher">Teacher Q&amp;A</a></div>
+    
+  </div> 
+  
+    <div class="menu col-1-4 help" style="border-color:#B70B39;"><div class="menutitle" style="background-color:#B70B39;">HELP</div>
+      
+      <a href="1.htm" tppabs="https://heritagechinese.com/website/help/1">Account/Profile</a><br>
+      
+      <a href="2.htm" tppabs="https://heritagechinese.com/website/help/2">Online HW 网络作业</a><br>
+      
+      <a href="3.htm" tppabs="https://heritagechinese.com/website/help/3">教材订购与采用</a><br>
+      
+    </div>   
+  </div>
+
+
+
+</div>
+
+
+
+<footer class="contact"> 
+  <a href="mailto:book@mlpchinese.com">Email</a>
+ <!--  <b>(650) 988-6890</b>  |   -->
+  475 N. Whisman Rd #200; Mountain View, CA 94043
+  <!-- <b>Walk-in:</b> Mon-Fri 12:30-1:30pm (cash or check), -->
+<!--   <b>Phone:</b> Mon-Fri 9am-3pm PT,  -->
+  <!-- <a href="/website/page/holidays/">except Holidays</a>    -->
+</footer>
+</div>
+<script src="jquery.js" tppabs="https://heritagechinese.com/static/common/jquery.js"></script>
+<script src="base.js" tppabs="https://heritagechinese.com/static/common/js/base.js"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90231731-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+  $('#view_older_news').click(function(e){
+    e.preventDefault();
+    if ($(this).next().hasClass('hidden')) {
+      $(this).next().removeClass('hidden');
+      $(this).html('Hide older news');
+    } else {
+      $(this).next().addClass('hidden');
+      $(this).html('View older news');
+    }
+  });
+
+  $(document).ready(function(){
+    var element = $('.global'), blinkLen = 300, duration = 4;
+    var blink = window.setInterval(function() {
+      var opacity = element.css("opacity") == 1 ? 0 : 1;
+      element.css("opacity", opacity);
+    }, blinkLen);
+    window.setTimeout(function() {
+        window.clearInterval(blink);
+        element.css("opacity", 1);
+    }, blinkLen * duration);
+
+  });
+
+//script for resizing the image map for mobile / responsive design
+window.onload = function () {
+    var ImageMap = function (map) {
+            var n,
+                areas = map.getElementsByTagName('area'),
+                len = areas.length,
+                coords = [],
+                img = document.getElementById('curriculum_image'),
+                previousWidth = 646;
+            for (n = 0; n < len; n++) {
+                coords[n] = areas[n].coords.split(',');
+            }
+            this.resize = function () {
+                var n, m, clen,
+                    x = img.clientWidth / previousWidth;
+                for (n = 0; n < len; n++) {
+                    clen = coords[n].length;
+                    for (m = 0; m < clen; m++) {
+                        coords[n][m] *= x;
+                    }
+                    areas[n].coords = coords[n].join(',');
+                }
+                previousWidth = img.clientWidth;
+                return true;
+            };
+            window.onresize = this.resize;
+        },
+        imageMap = new ImageMap(document.getElementById('map'));
+    imageMap.resize();
+}
+</script>
+
+
+
+
+</body>
 </html>
